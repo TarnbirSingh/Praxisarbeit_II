@@ -1,21 +1,20 @@
 #import "@preview/supercharged-dhbw:3.4.1": *
 
-= Grundlagen
-== Continuous Integration und Continuous Delivery/Deployment (CI/CD)
+= Grundlagen <chap:grundlagen>
+== Continuous Integration und Continuous Delivery/Deployment
 === Continuous Integration (CI)
-*Continuous Integration (CI)* ist eine zentrale Entwicklungspraxis in der Softwareentwicklung, bei der Entwickler ihre Code-Änderungen in kleinen, überschaubaren Inkrementen und in hoher Frequenz - oft mehrmals täglich - in ein zentrales, gemeinsames Repository überführen. Unmittelbar nach jeder dieser Integrationen wird ein vollautomatisierter Prozess, die sogenannte CI-Pipeline, angestoßen. Diese Pipeline kompiliert den gesamten Quellcode (erstellt einen "Build") und führt eine umfassende Squenz von automatisierten Tests aus.@Clark2025
+*Continuous Integration (CI)* ist eine zentrale Entwicklungspraxis in der Softwareentwicklung, bei der Entwickler ihre Code-Änderungen in kleinen, überschaubaren Inkrementen und in hoher Frequenz - oft mehrmals täglich - in ein zentrales, gemeinsames Repository überführen. Unmittelbar nach jeder dieser Integrationen wird ein vollautomatisierter Prozess, die sogenannte CI-Pipeline, angestoßen. Diese Pipeline kompiliert den gesamten Quellcode (erstellt einen "Build") und führt eine umfassende Sequenz von automatisierten Tests aus.@Merode2023
 
-DDas primäre Ziel dieses Vorgehens ist die frühzeitige Identifikation von Integrationsfehlern - also von Problemen, die entstehen, wenn die Code-Teile verschiedener Entwickler:innen zusammengeführt werden. Ohne kontinuierliche Integration würden solche Konflikte typischerweise erst in späten Entwicklungsphasen auffallen, was zu aufwendigen Debugging-Prozessen, längeren Release-Zyklen und einem erhöhten Risiko von Systeminstabilitäten führen kann. Durch das häufige Zusammenführen wird stattdessen eine schnelle Feedback-Schleife etabliert, die es Entwickler:innen ermöglicht, die Auswirkungen ihrer Änderungen auf das Gesamtsystem zeitnah zu verstehen und Anpassungen vorzunehmen, bevor größere Probleme entstehen. Dies trägt maßgeblich zu einer stabileren und wartungsfreundlicheren Codebasis bei.@Clark2025
+Das primäre Ziel dieses Vorgehens ist die frühzeitige Identifikation von Integrationsfehlern - also von Problemen, die entstehen, wenn die Code-Teile verschiedener Entwickler:innen zusammengeführt werden. Ohne kontinuierliche Integration würden solche Konflikte typischerweise erst in späten Entwicklungsphasen auffallen, was zu aufwendigen Debugging-Prozessen, längeren Release-Zyklen und einem erhöhten Risiko von Systeminstabilitäten führen kann. Durch das häufige Zusammenführen wird stattdessen eine schnelle Feedback-Schleife etabliert, die es Entwickler:innen ermöglicht, die Auswirkungen ihrer Änderungen auf das Gesamtsystem zeitnah zu verstehen und Anpassungen vorzunehmen, bevor größere Probleme entstehen. Dies trägt maßgeblich zu einer stabileren und wartungsfreundlicheren Codebasis bei.@Clark2025
 
 
-Die praktische Umsetzung erfolgt durch Werkzeuge wie Jenkins oder GitHub Actions, welche die Prozessautomatisierung steuern. Eine robuste CI-Pipeline stützt sich dabei auf verschiedene Testebenen, um eine durchgehende Qualitätssicherung zu gewährleisten. Diese umfassen Unit-Tests, welche die kleinsten, isolierten Komponenten der Software auf ihre korrekte Funktionsweise prüfen, Integrationstests, welche das reibungslose Zusammenspiel verschiedener Module verifizieren, und End-to-End-Tests, welche die gesamte Anwendung durch die Simulation vollständiger Benutzerszenarien aus der Perspektive des Endnutzers testen.@Bajpai2024
-
+Die praktische Umsetzung erfolgt durch Werkzeuge wie Jenkins oder GitHub Actions, welche die Prozessautomatisierung steuern. Eine robuste CI-Pipeline stützt sich dabei auf verschiedene Testebenen, um eine durchgehende Qualitätssicherung zu gewährleisten. Diese umfassen Unit-Tests, welche die kleinsten, isolierten Komponenten der Software auf ihre korrekte Funktionsweise prüfen, Integrationstests, welche das reibungslose Zusammenspiel verschiedener Module verifizieren, und End-to-End-Tests, welche die gesamte Anwendung durch die Simulation vollständiger Benutzerszenarien aus der #box[Perspektive des Endnutzers testen].@Bajpai2024
 \
 === Continuous Delivery (CD)
 
 *Continuous Delivery (CD)* bezeichnet eine Entwicklungsdisziplin, bei der Software so konzipiert, gebaut und getestet wird, dass sie jederzeit produktiv auslieferbar ist. Nach Humbl liegt der Fokus darauf, die Software in einem kontinuierlich deployfähigen Zustand zu halten und sicherzustellen, dass jede Version der Anwendung auf Knopfdruck in eine beliebige Umgebung ausgerollt werden kann.@Humble2013
 
-Continuous Delivery baut auf Continuous Integration auf, erweitert diese jedoch um die finalen Stufen, die für eine produktionsreife Bereitstellung erforderlich sind. Dazu gehört, dass jedes Build-Artefakt automatisiert getestet und in produktionsähnliche Umgebungen übertragen wird, um die Funktionsfähigkeit sicherzustellen. Grundlage bildet dabei eine sogenannte Deployment Pipeline, welche die einzelnen Phasen von Build, Test und Release automatisiert abbildet.@Humble2013
+Continuous Delivery baut auf Continuous Integration auf, erweitert diese jedoch um die finalen Stufen, die für eine produktionsreife Bereitstellung erforderlich sind. Dazu gehört, dass jedes Build-Artefakt automatisiert getestet und in produktionsähnliche Umgebungen übertragen wird, um die Funktionsfähigkeit sicherzustellen. Grundlage bildet dabei eine sogenannte Deployment Pipeline, welche die einzelnen Phasen von Build, Test und Release #box[automatisiert abbildet].@Humble2013
 
 Das Ziel von Continuous Delivery ist es, das Risiko von Deployments zu reduzieren, die Nachvollziehbarkeit des Entwicklungsfortschritts zu erhöhen und schnelleres, verlässliches Feedback von Nutzern zu ermöglichen. Der wesentliche Unterschied zur Continuous Deployment besteht darin, dass Deployments bei Continuous Delivery zwar jederzeit möglich, aber nicht zwingend automatisiert erfolgen müssen. Die Entscheidung über den produktiven Rollout liegt letztlich beim Team oder dem jeweiligen Fachbereich.@Clark2025
 
@@ -30,13 +29,17 @@ Automatisierte Deployment-Pipelines bilden den Kern dieses Prozesses. Sie verifi
 Im Gegensatz dazu belässt Continuous Delivery die Entscheidung über den Rollout beim Menschen. Continuous Deployment überträgt diese Entscheidung vollständig an die Pipeline selbst und realisiert damit einen durchgängigen, automatisierten Auslieferungsprozess.@Clark2025
 
 
-== Cloud Application Programming Model (CAP)
+== Cloud Application Programming Model<sec:cap>
+Das SAP Cloud Application Programming Model (CAP) ist ein Framework aus Sprachen, Bibliotheken und Werkzeugen, das zur Entwicklung von unternehmenstauglichen Cloud-Diensten und -Anwendungen dient. Es leitet Entwickler:innen entlang eines sogenannten "goldenen Pfads" von bewährten Best Practices. Ziel ist es, Entwickler:innen von repetitiven, technischen Aufgaben zu entlasten, sodass sie sich auf die eigentliche Fachdomäne konzentrieren können.@Kopecz2021
 
+Der technische Eckpfeiler von CAP ist Core Data Services (CDS). CDS ist eine deklarative Sprache, die es ermöglicht, Datenmodelle und Service-Definitionen auf einer konzeptionellen Ebene zu erfassen @Kopecz2021. Diese CDS-Modelle dienen als zentrale Quelle und werden von dort aus in native Artefakte für verschiedene Schichten übersetzt - beispielsweise in SQL-Datenbankschemata für die Persistenzschicht oder in OData-Services für die Applikationsschicht.@saphelp
+
+CAP folgt dem Prinzip „Convention over Configuration“, was bedeutet, dass das Framework sinnvolle Standardeinstellungen (Konventionen) vorgibt. Entwickler:innen müssen dadurch nicht jede Kleinigkeit selbst konfigurieren, was den initialen Einrichtungsaufwand reduziert. Zudem ist es „agnostisch“ konzipiert; es ist also nicht fest an eine bestimmte Technologie gebunden. Dies erlaubt es beispielsweise, in der lokalen Entwicklung eine einfache SQLite-Datenbank zu verwenden, während in der Produktion SAP HANA zum Einsatz kommt, ohne dass der Anwendungscode geändert werden muss. @capire Das Framework unterstützt primär die Runtimes Node.js und Java und bietet für das  Deployment eine nahtlose Integration in die Cloud Foundry Runtime.@saphelp
 
 == Cloud Foundry
-Cloud Foundry ist eine Cloud-Native Plattform, die Anwendungen abstrahiert von der zugrundeliegenden Infrastruktur betreibt und dabei viele betriebliche Aufgaben automatisiert übernimmt. Ziel ist es, Entwickler:innen zu entlasten und die Bereitstellung von Software zu beschleunigen (Kap. 1).@Winn2017
+Cloud Foundry ist eine Cloud-Native Plattform, die Anwendungen abstrahiert von der zugrundeliegenden Infrastruktur betreibt und dabei viele betriebliche Aufgaben automatisiert übernimmt. Ziel ist es, Entwickler:innen zu entlasten und die Bereitstellung von Software zu beschleunigen.@Seubert2022
 
-Eine Cloud-Native Plattform integriert Funktionen wie Resilienz, Benutzerverwaltung und Logging und reduziert damit den Konfigurationsaufwand. Cloud Foundry wird dabei als structured, opinionated und open beschrieben: Sie bietet eingebaute, konsistente Funktionen (structured), folgt bewährten Prinzipien und reduziert Komplexität (opinionated), und ist offen für verschiedene Infrastrukturen, Programmiersprachen sowie Frameworks (open) (Kap. 1).@Winn2017
+Eine Cloud-Native Plattform integriert Funktionen wie Resilienz, Benutzerverwaltung und Logging und reduziert damit den Konfigurationsaufwand. Cloud Foundry wird dabei als structured, opinionated und open beschrieben: Sie bietet eingebaute, konsistente Funktionen (structured), folgt bewährten Prinzipien und reduziert Komplexität (opinionated), und ist offen für verschiedene Infrastrukturen, Programmiersprachen sowie Frameworks (open).@Winn2017
 
 #figure(
   image("../assets/cloud_foundry.png", width: 90%),
@@ -50,12 +53,12 @@ Eine Cloud-Native Plattform integriert Funktionen wie Resilienz, Benutzerverwalt
 
 Die @fig:cloud_foundry verdeutlicht die Unterschiede zwischen traditionellen Ansätzen, IaaS, unstrukturierten Plattformen und Cloud Foundry. Während in klassischen Modellen zahlreiche Schichten manuell verwaltet werden müssen, integriert Cloud Foundry zentrale Funktionen und hebt so die Abstraktionsebene deutlich an.
 
-Ein zentrales Konzept ist die Entlastung von undifferentiated heavy lifting tasks, also grundlegenden, aber nicht differenzierenden Infrastrukturarbeiten wie Skalierung oder Logging. Cloud Foundry übernimmt diese Aufgaben automatisch und ermöglicht es, dass sich Entwickler:innen auf die eigentliche Geschäftslogik konzentrieren können. Die Plattform agiert damit wie ein Cloud-Betriebssystem, das Anwendungen konsistent und resilient betreibt (Kap. 2).@Winn2017 
+Ein zentrales Konzept ist die Entlastung von undifferentiated heavy lifting tasks, also grundlegenden, aber nicht differenzierenden Infrastrukturarbeiten wie Skalierung oder Logging. Cloud Foundry übernimmt diese Aufgaben automatisch und ermöglicht es, dass sich Entwickler:innen auf die eigentliche Geschäftslogik konzentrieren können. Die Plattform agiert damit wie ein Cloud-Betriebssystem, das Anwendungen konsistent und resilient betreibt.@Winn2017 
 
 == KI-Agenten <sec:agent>
 Die Entwicklung von KI-gestützten Systemen hat sich über das reine Prompt Engineering hinaus entwickelt, da komplexe Aufgaben Planung und Validierung erfordern @Lanham. In diesem Kontext hat sich das Konzept des KI-Agenten als zentraler Baustein etabliert.\
 Im Kontext moderner Large Language Models (LLMs) wird der Begriff "Agent" breiter gefasst als in der klassischen KI (z.B. Reinforcement Learning). Ein Agent ist hierbei ein System, das seine Umgebung wahrnimmt, Entscheidungen trifft und über Aktoren auf diese Umgebung einwirkt, wobei das LLM als "leitende Intelligenz" zur Erreichung eines Ziels dient.@Lanham \
-Nach (Lanham) werden Agenten primär durch ihren Autonomiegrad klassifiziert. Die Skala reicht von Agenten-Proxys, die lediglich Nutzereingaben optimieren, über Assistenten, die für Aktionen eine explizite Nutzerfreigabe benötigen, bis hin zu autonomen Agenten, welche eine Anfrageinterpretieren, daraufhin selbstständig einen Plan und  die notwendigen Schritte zur Zielerreichung ohne weitere Freigaben ausführen.@Lanham \
+Nach (Lanham) werden Agenten primär durch ihren Autonomiegrad klassifiziert. Die Skala reicht von Agenten-Proxys, die lediglich Nutzereingaben optimieren, über Assistenten, die für Aktionen eine explizite Nutzerfreigabe benötigen, bis hin zu autonomen Agenten, welche eine Anfrage interpretieren, daraufhin selbstständig einen Plan und  die notwendigen Schritte zur Zielerreichung ohne weitere Freigaben ausführen.@Lanham \
 Die Systemarchitektur solcher Agenten lässt sich nach (Lanham) in fünf Kernkomponenten gliedern, die auch die theoretische Basis für das in dieser Arbeit entwickelte Modell bilden:
 Das Fünf-Komponenten-Modell nach Lanham umfasst die folgenden zentralen Elemente:
 
@@ -67,19 +70,19 @@ Das Fünf-Komponenten-Modell nach Lanham umfasst die folgenden zentralen Element
   [*Planung (Planning):* Definiert den übergeordneten Workflow und steuert die Ausführung zur Erreichung des Ziels. @Lanham]
 )
 
-== Large Language Models (LLM)
-Ein *Large Language Model (LLM)* ist ein auf künstlicher Intelligenz basierendes Modell, das in der Lage ist, große Mengen an Textdaten zu analysieren und darauf aufbauend Texte in natürlicher Sprache zu generieren @Cloudfare2024. Diese Modelle nutzen Deep-Learning-Methoden, insbesondere den sogenannten Transformer-Ansatz, um Sprache zu verstehen, zu verarbeiten und neue Inhalte zu erzeugen. @IBM2023
+== Large Language Models 
+Ein *Large Language Model (LLM)* ist ein auf künstlicher Intelligenz basierendes Modell, das in der Lage ist, große Mengen an Textdaten zu analysieren und darauf aufbauend Texte in natürlicher Sprache zu generieren @Cloudfare2024. Diese Modelle nutzen Deep-Learning-Methoden, insbesondere den sogenannten Transformer-Ansatz, um Sprache zu verstehen, zu verarbeiten und neue Inhalte zu erzeugen.@IBM2023
 
 Der Transformer-Ansatz stellt eine spezialisierte Architektur des maschinellen Lernens dar, die auf dem Prinzip der Selbstaufmerksamkeit (Self-Attention) basiert. Diese ermöglicht es dem Modell, Beziehungen zwischen Wörtern, Sätzen und Kontexten zu erkennen und semantische Abhängigkeiten über lange Textabschnitte hinweg abzubilden.@Bhowmik2021\           
-Dadurch kann ein LLM sprachliche Muster effizient erfassen und kontextsensitiv verarbeiten.
+Dadurch kann ein LLM sprachliche Muster effizient erfassen und kontextsensitiv verarbeiten.@Alammar2024
 
-Technisch basieren LLMs auf tiefen neuronalen Netzen, die - inspiriert vom Aufbau und der Funktionsweise des menschlichen Gehirns - Informationen in mehreren Schichten von künstlichen Neuronen verarbeiten. Diese hierarchische Struktur erlaubt es, Bedeutungen und Zusammenhänge in Sprache abzuleiten und zu generalisieren. @Goodfellow2018
+Technisch basieren LLMs auf tiefen neuronalen Netzen, die - inspiriert vom Aufbau und der Funktionsweise des menschlichen Gehirns - Informationen in mehreren Schichten von künstlichen Neuronen verarbeiten. Diese hierarchische Struktur erlaubt es, Bedeutungen und Zusammenhänge in Sprache abzuleiten und zu generalisieren.@Goodfellow2018 @Alammar2024
 
-Insgesamt ermöglichen LLMs das Verständnis, die Interpretation und die Generierung von Texten, die in Stil, Struktur und Inhalt stark an menschliche Sprache angelehnt sind. Damit stellen sie die Grundlage vieler moderner generativer KI-Systeme dar, wie Chatbots, Textgeneratoren oder KI-gestützte Assistenzsysteme. @Cloudfare2024
+Insgesamt ermöglichen LLMs das Verständnis, die Interpretation und die Generierung von Texten, die in Stil, Struktur und Inhalt stark an menschliche Sprache angelehnt sind. Damit stellen sie die Grundlage vieler moderner generativer KI-Systeme dar, wie Chatbots, Textgeneratoren oder KI-gestützte Assistenzsysteme.@Cloudfare2024
 
 
 == CRISP-DM Methodik
-Die in dieser Arbeit angewandte Methodik zur Entwicklung des KI-gestützten Agents basiert auf dem CRISP-DM (*CR***oss-*I***ndustry *S***tandard *P***rocess for *D***ata *M***ining) Prozessmodell. CRISP-DM wurde 1999 veröffentlicht, um einen branchenübergreifenden Standard für Data-Mining-Projekte zu etablieren, und gilt heute als eine der am weitesten verbreiteten Vorgehensweisen in diesem Bereich. Das Modell strukturiert den Prozess in sechs Phasen, die zwar sequenziell dargestellt werden, in der Praxis jedoch häufig iterativ durchlaufen werden, was Rücksprünge zu früheren Phasen einschließt.@Chapman2000 
+Die in dieser Arbeit angewandte Methodik zur Entwicklung des KI-gestützten Agents basiert auf dem CRISP-DM (*CR*\oss-*I*\ndustry *S*\tandard *P*\rocess for *D*\ata *M*\ining) Prozessmodell. CRISP-DM wurde 1999 veröffentlicht, um einen branchenübergreifenden Standard für Data-Mining-Projekte zu etablieren, und gilt heute als eine der am weitesten verbreiteten Vorgehensweisen in diesem Bereich. Das Modell strukturiert den Prozess in sechs Phasen, die zwar sequenziell dargestellt werden, in der Praxis jedoch häufig iterativ durchlaufen werden, was Rücksprünge zu früheren Phasen einschließt.@Chapman2000 
 
 #figure(
 image("../assets/crispdm_reference.png"),
@@ -94,7 +97,7 @@ Den Ausgangspunkt des Prozesses bildet das *Geschäftsverständnis (Business Und
 #figure(
 image("../assets/crispdm_task.png"),
 caption: [
-Hierarchische Gliederung des CRISP-DM-Modells in vier Abstraktionsebenen @Chapman2000.
+Hierarchische Gliederung des CRISP-DM-Modells in #box[ vier Abstraktionsebenen @Chapman2000.] 
 ]
 )
 #label("fig:crisp_dm_hierarchie")
